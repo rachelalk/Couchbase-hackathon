@@ -1,38 +1,116 @@
+@import url(https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap);
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: ‘Oswald’, sans-serif;
+}
+
+body {
+  background-color: #BC4B51;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
+  min-height: 100%;
+  width: 100%;
+  background-color: #BC4B51;
+  font-family: ‘Oswald’, sans-serif;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.display-card {
+  justify-self: center;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  border: solid;
+  border-width: 5px;
+  border-color:#621708;
+  padding: 2%;
+  margin-bottom: 2%;
+  background-color: #EDF2F4;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2%;
+  
+
+}
+
+.lat-long {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
+}
+
+button {
+  width: 30%;
+  padding: 2%;
+  align-self: center;
+  margin-bottom: 2%;
+  background-color: #621708;
   color: white;
+  margin-top: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  width: 80%;
+  margin: auto;
+  border-color: #621708;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+textarea {
+  width: 80%;
+  margin: auto;
+  border-color: #621708;
+}
+
+h3 {
+  color: #621708;
+}
+
+h1 {
+  color: white;
+  font-family: 'Creepster', cursive;
+}
+
+h2 {
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.input-title {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  color: white;
 }

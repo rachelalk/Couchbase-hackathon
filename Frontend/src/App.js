@@ -12,8 +12,7 @@ function App() {
 	const [lat, setLat] = useState("");
 	const [long, setLong] = useState("");
 	const [descriptionValue, setDescriptionValue] = useState("");
-	const [backendData, setBackendData] = useState([
-	]);
+	const [backendData, setBackendData] = useState([]);
 	const [stateCount, setStateCount] = useState(0);
 
 	function dateOnChange(e) {
@@ -87,30 +86,24 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Moors Fires</h1>
-			Date: <br></br>
+			<h2>Tracking fires in the Moors</h2>
+			<p className="input-title">Date:</p>
 			<Input
 				value={dateValue}
 				onChange={dateOnChange}
 				placeholder="Date"
 			></Input>
-			<br></br>
-			<br></br>
-			Time: <br></br>
+			<p className="input-title">Time:</p>
 			<Input
 				value={timeValue}
 				onChange={timeOnChange}
 				placeholder="Time"
 			></Input>
-			<br></br>
-			<br></br>
-			Description:
-			<br></br>
+			<p className="input-title">Description:</p>
 			<TextArea
 				descriptionValue={descriptionValue}
 				descriptionOnChange={descriptionOnChange}
 			/>
-			<br></br>
-			<br></br>
 			<Button text="Report a Fire" onClick={onClick}></Button>
 			<Display array={backendData} />
 		</div>
