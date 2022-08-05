@@ -1,58 +1,19 @@
-var couchbase = require("couchbase");
-require("dotenv").config();
+import express from "express";
+import bodyParser from "body-parser";
 
-async function main() {
-	const clusterConnStr = process.env.clusterConnStr;
-	const username = process.env.username;
-	const password = process.env.password;
-	const bucketName = process.env.bucketName;
+import fires from "./routes/fires.js";
 
-	const cluster = await couchbase.connect(clusterConnStr, {
-		username: username,
-		password: password,
-		timeouts: {
-			kvTimeout: 10000, // milliseconds
-		},
-	});
+const app = express(); // initialise the express application
+const port = 3001; // TODO : move it to env/config file
 
-	const bucket = cluster.bucket(bucketName);
+app.use(bodyParser.json()); // tells system we need to use json in api
 
-	// Get a reference to the default collection, required only for older Couchbase server versions
-	const defaultCollection = bucket.defaultCollection();
+// app.use("/", fires);
 
-	// 	const collection = bucket.scope("tenant_agent_00").collection("users");
+console.log(process.env);
 
-	// 	const user = {
-	// 		type: "user",
-	// 		name: "Michael",
-	// 		email: "michael123@test.com",
-	// 		interests: ["Swimming", "Rowing"],
-	// 	};
+app.use("/", fires);
 
-	// 	// Create and store a document
-	// 	await collection.upsert("michael123", user);
-
-	// 	// Load the Document and print it
-	// 	// Prints Content and Metadata of the stored Document
-	// 	let getResult = await collection.get("michael123");
-	// 	console.log("Get Result: ", getResult);
-
-	// 	// Perform a N1QL Query
-	// 	const queryResult = await bucket
-	// 		.scope("tenant_agent_00")
-	// 		.query("SELECT name FROM `users` WHERE $1 in interests", {
-	// 			parameters: ["Swimming"],
-	// 		});
-	// 	console.log("Query Results:");
-	// 	queryResult.rows.forEach((row) => {
-	// 		console.log(row);
-	// 	});
-}
-
-// Run the main function
-main()
-	.catch((err) => {
-		console.log("ERR:", err);
-		process.exit(1);
-	})
-	.then(process.exit);
+app.listen(port, () => {
+  console.log(`Server running on Port ${port} ...`);
+}); // called it a 'function listener'

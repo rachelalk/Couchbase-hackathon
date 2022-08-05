@@ -1,11 +1,13 @@
 {
-	"dependencies": {
-		"couchbase": "^4.1.2",
-		"dotenv": "^16.0.1",
-		"express": "^4.18.1",
-		"nodemon": "^2.0.19"
-	},
-	"scripts": {
-		"start": "nodemon -r dotenv/config index.js"
-	}
+  "dependencies": {
+    "cors": "^2.8.5",
+    "couchbase": "^4.1.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "start": "nodemon -r dotenv/config index.js"
+  },
+  "type": "module"
 }
