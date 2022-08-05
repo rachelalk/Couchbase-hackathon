@@ -13,13 +13,6 @@ function App() {
 	const [long, setLong] = useState("");
 	const [descriptionValue, setDescriptionValue] = useState("");
 	const [backendData, setBackendData] = useState([
-		// {
-		// 	date: "05/08/2022",
-		// 	time: "12:01",
-		// 	description: "Black smoke",
-		// 	lat: "54.3872° N",
-		// 	long: "0.8927° W",
-		// },
 	]);
 	const [stateCount, setStateCount] = useState(0);
 
