@@ -13,13 +13,13 @@ function App() {
 	const [long, setLong] = useState("");
 	const [descriptionValue, setDescriptionValue] = useState("");
 	const [backendData, setBackendData] = useState([
-		{
-			date: "05/08/2022",
-			time: "12:01",
-			description: "Black smoke",
-			lat: "54.3872° N",
-			long: "0.8927° W",
-		},
+		// {
+		// 	date: "05/08/2022",
+		// 	time: "12:01",
+		// 	description: "Black smoke",
+		// 	lat: "54.3872° N",
+		// 	long: "0.8927° W",
+		// },
 	]);
 	const [stateCount, setStateCount] = useState(0);
 
@@ -50,10 +50,10 @@ function App() {
 	}
 
 	useEffect(() => {
-		fetch(`${process.env.url}`)
+		fetch(`http://localhost:3001/fires`)
 			.then((res) => res.json())
 			.then((data) => {
-				setBackendData(data.payload);
+				setBackendData(data);
 			});
 	}, []);
 
@@ -66,32 +66,30 @@ function App() {
 	};
 
 	async function onClick() {
-		fetch(`${process.env.url}`, {
+		fetch(`http://localhost:3001/fires`, {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",
 			},
 			body: JSON.stringify(fireData),
-		})
-			.then((res) => res.json())
-			.then((data) => setBackendData([...backendData, data.payload[0]]))
-			.then(() => {
-				setStateCount((c) => c + 1);
-			});
+		}).then(() => {
+			setStateCount((c) => c + 1);
+		});
+		setDateValue("");
+		setTimeValue("");
+		setDescriptionValue("");
 	}
 
-	// GET request that rerenders page after ticket status is updated
 	useEffect(() => {
-		fetch(`${process.env.url}`)
+		fetch(`http://localhost:3001/fires`)
 			.then((res) => res.json())
 			.then((data) => {
-				setBackendData(data.payload);
+				setBackendData(data);
 			});
 	}, [stateCount]);
 
 	getLocation();
-	console.log(lat);
-	console.log(long);
+	console.log(backendData);
 
 	return (
 		<div className="App">
