@@ -3,7 +3,7 @@ import { couchbaseConnect } from "./cbManager.js";
 
 export async function findFires() {
   const cluster = await couchbaseConnect();
-  const query = `SELECT fire-report-bucket.* FROM \`fire-report-bucket\`;`;
+  const query = `SELECT \`fire-report-bucket\`.* FROM \`fire-report-bucket\`;`;
 
   try {
     let result = await cluster.query(query);
