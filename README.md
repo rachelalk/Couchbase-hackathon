@@ -12,6 +12,7 @@ Main Learning Points:
 - I learnt the value of a non-relational database. Having never used one before, it really opened my eyes to see how much easier it is to adapt the data that you want to store if you aren't tied into a specific table format.
 - I learnt how similar the process of hooking up an express server to any database is, you just need know where to look and what you are looking for.
 - I learnt a lot about connecting specifically to the Couchbase server and how you need to be specific in your request in order to access and use the data within a specific bucket.
+- I learnt how to use the browser to get the user's latitude and longitude and submit it to the database.
 
 This day was really valuable, I learnt a lot, met some fantastic people and really enjoyed working with people in person rather than online.
 
